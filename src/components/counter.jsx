@@ -8,8 +8,8 @@ function Counter() {
   }
   return (
     <>
-      <span>{formatCount()}</span>
-      <button>Increment</button>
+      <span className="badge bg-primary m-2">{formatCount()}</span>
+      <button className="btn btn-secondary btn-sm">Increment</button>
     </>
   );
 }
