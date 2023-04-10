@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-function Counter({ tags }) {
-  tags = ["tag1", "tag2", "tag3"];
+function Counter() {
   const [count, setCount] = useState(0);
 
   const formatCount = () => {
@@ -27,6 +26,7 @@ function Counter({ tags }) {
 
   const handleIncrement = () => {
     console.log("Increment Clicked");
+    setCount(count + 1);
   };
   return (
     <>
