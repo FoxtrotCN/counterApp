@@ -9,9 +9,11 @@ function Counters() {
     { id: 4, value: 4 },
   ]);
 
-  const handleDelete = () => {
-    console.log("Event Handler called.");
+  const handleDelete = (counterId) => {
+    const countersFiltered = counters.filter((c) => c.id !== counterId);
+    setCounters(countersFiltered);
   };
+
   return (
     <>
       {counters.map((counter) => (

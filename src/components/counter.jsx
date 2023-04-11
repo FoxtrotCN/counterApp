@@ -38,7 +38,10 @@ function Counter({ value, id, onDelete }) {
         >
           Increment
         </button>
-        <button onClick={onDelete} className="btn btn-danger btn-sm m-2">
+        <button
+          onClick={() => onDelete(id)}
+          className="btn btn-danger btn-sm m-2"
+        >
           Delete
         </button>
       </div>
