@@ -24,14 +24,18 @@ function Counter() {
   //   );
   // };
 
-  const handleIncrement = () => {
-    console.log("Increment Clicked");
+  const handleIncrement = (e) => {
+    console.log(e);
     setCount(count + 1);
   };
+
   return (
     <>
       <span className={getBadgeColor()}>{formatCount()}</span>
-      <button onClick={handleIncrement} className="btn btn-secondary btn-sm">
+      <button
+        onClick={(e) => handleIncrement(e)}
+        className="btn btn-secondary btn-sm"
+      >
         Increment
       </button>
       {/*{tags.length === 0 && <p>Please, create a new tag!</p>}*/}
