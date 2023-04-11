@@ -11,7 +11,9 @@ function Counters() {
   return (
     <>
       {counters.map((counter) => (
-        <Counter key={counter.id} value={counter.value} />
+        <Counter key={counter.id} value={counter.value}>
+          <h1>I am a children</h1>
+        </Counter>
       ))}
     </>
   );
