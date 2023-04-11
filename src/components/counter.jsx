@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Counter({ value, selected }) {
+  const [count, setCount] = useState(value);
 
   const formatCount = () => {
     return count === 0 ? "Zero" : count;
