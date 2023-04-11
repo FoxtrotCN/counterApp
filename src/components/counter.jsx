@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Counter({ value, children }) {
+function Counter({ value, id, onDelete }) {
   const [count, setCount] = useState(value);
 
   const formatCount = () => {
@@ -31,7 +31,6 @@ function Counter({ value, children }) {
   return (
     <>
       <div>
-        {children}
         <span className={getBadgeColor()}>{formatCount()}</span>
         <button
           onClick={(e) => handleIncrement(e)}
@@ -39,8 +38,9 @@ function Counter({ value, children }) {
         >
           Increment
         </button>
-        {/*{tags.length === 0 && <p>Please, create a new tag!</p>}*/}
-        {/*{renderTags()}*/}
+        <button onClick={onDelete} className="btn btn-danger btn-sm m-2">
+          Delete
+        </button>
       </div>
     </>
   );

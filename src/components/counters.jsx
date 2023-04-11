@@ -8,12 +8,19 @@ function Counters() {
     { id: 3, value: 0 },
     { id: 4, value: 4 },
   ]);
+
+  const handleDelete = () => {
+    console.log("Event Handler called.");
+  };
   return (
     <>
       {counters.map((counter) => (
-        <Counter key={counter.id} value={counter.value}>
-          <h1>I am a children</h1>
-        </Counter>
+        <Counter
+          key={counter.id}
+          onDelete={handleDelete}
+          value={counter.value}
+          id={counter.id}
+        />
       ))}
     </>
   );
