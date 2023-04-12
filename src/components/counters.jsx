@@ -9,6 +9,15 @@ function Counters() {
     { id: 4, value: 4 },
   ]);
 
+  const handleIncrement = (counterId) => {
+    const incrementingIndex = counters.findIndex((c) => c.id === counterId);
+    const incrementingCounter = { ...counters[incrementingIndex] };
+    incrementingCounter.value += 1;
+    const updatedCounters = [...counters];
+    updatedCounters[incrementingIndex] = incrementingCounter;
+    setCounters(updatedCounters);
+  };
+
   const handleDelete = (counterId) => {
     const countersFiltered = counters.filter((c) => c.id !== counterId);
     setCounters(countersFiltered);
@@ -19,9 +28,11 @@ function Counters() {
       {counters.map((counter) => (
         <Counter
           key={counter.id}
+          onIncrement={handleIncrement}
           onDelete={handleDelete}
-          value={counter.value}
-          id={counter.id}
+          counter={counter}
+          // value={counter.value}
+          // id={counter.id}
         />
       ))}
     </>
