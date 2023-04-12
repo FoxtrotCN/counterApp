@@ -20,6 +20,15 @@ function App() {
     setCounters(updatedCounters);
   };
 
+  const handleDecrement = (counterId) => {
+    const decrementingIndex = counters.findIndex((c) => c.id === counterId);
+    const decrementingCounter = { ...counters[decrementingIndex] };
+    decrementingCounter.value -= 1;
+    const updatedCounters = [...counters];
+    updatedCounters[decrementingIndex] = decrementingCounter;
+    setCounters(updatedCounters);
+  };
+
   const handleReset = () => {
     const resettingCounters = counters.map((c) => {
       c.value = 0;
@@ -32,6 +41,7 @@ function App() {
     const countersFiltered = counters.filter((c) => c.id !== counterId);
     setCounters(countersFiltered);
   };
+
   return (
     <>
       <main className="container">
@@ -39,6 +49,7 @@ function App() {
         <Counters
           counters={counters}
           onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
           onReset={handleReset}
           onDelete={handleDelete}
         />
