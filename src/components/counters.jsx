@@ -1,5 +1,5 @@
 import Counter from "./counter";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Counters() {
   const [counters, setCounters] = useState([
@@ -18,6 +18,14 @@ function Counters() {
     setCounters(updatedCounters);
   };
 
+  const handleReset = () => {
+    const resettingCounters = counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    setCounters(resettingCounters);
+  };
+
   const handleDelete = (counterId) => {
     const countersFiltered = counters.filter((c) => c.id !== counterId);
     setCounters(countersFiltered);
@@ -25,6 +33,9 @@ function Counters() {
 
   return (
     <>
+      <button onClick={handleReset} className="btn btn-success btn-sm m-2">
+        Reset
+      </button>
       {counters.map((counter) => (
         <Counter
           key={counter.id}
