@@ -6,11 +6,10 @@ function NavBar({ counters }) {
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
           <span className="navbar-brand mb-0 h1">
-            Showing{" "}
+            Counters{" "}
             <span className="badge rounded-pill bg-info bg-sm">
               {counters.length}
-            </span>{" "}
-            Counters.
+            </span>
           </span>
         </div>
       </nav>
